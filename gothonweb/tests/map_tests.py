@@ -32,14 +32,14 @@ def test_map():
 	assert_equal(start.go('down').go('up'), start)
 	
 def test_gothon_game_map():
-	assert_equal(START.go('shoot'), loser)
-	assert_equal(START.go('dodge'), loser)
+	assert_equal(START.go('shoot'), shoot_death)
+	assert_equal(START.go('dodge'), dodge_death)
 	assert_equal(START.go('joke'), armory)
 	
-	assert_equal(armory.go('0132'), bridge)
-	assert_equal(armory.go('*'), loser)
+	assert_equal(armory.go('132'), bridge)
+	assert_equal(armory.go('*'), guess_death)
 	
-	assert_equal(bridge.go('throw'), loser)
+	assert_equal(bridge.go('throw'), throw_death)
 	assert_equal(bridge.go('place'), escape_pod)
 	
 	assert_equal(escape_pod.go('2'), winner)

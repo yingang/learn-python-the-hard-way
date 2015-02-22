@@ -18,3 +18,7 @@ def test_POST():
 	data = {'name': 'YG', 'greet': 'Hola'}
 	resp = app.request("/hello", method="POST", data=data)
 	assert_response(resp, contains="YG")
+	
+def test_game_init():
+	resp = app.request("/init", method="GET")
+	assert_response(resp, status="303")
